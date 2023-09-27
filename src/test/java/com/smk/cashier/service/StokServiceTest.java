@@ -33,19 +33,19 @@ class StokServiceTest {
         Stok laptop = new Stok();
         laptop.setId(1);
         laptop.setKodeBarang("LP001");
-        laptop.setStokBarang(3);
+        laptop.setStokBarang(2);
         StokService.getInstance().addStok(laptop);
 
         Stok mouse = new Stok();
         mouse.setId(2);
         mouse.setKodeBarang("M0001");
-        mouse.setStokBarang(4);
+        mouse.setStokBarang(7);
         StokService.getInstance().addStok(mouse);
 
         Stok laptopGaming = new Stok();
         laptop.setId(3);
         laptop.setKodeBarang("LP002");
-        laptop.setStokBarang(6);
+        laptop.setStokBarang(3);
         StokService.getInstance().addStok(laptopGaming);
 
     }
