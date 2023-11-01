@@ -41,6 +41,7 @@ class BarangServiceTest {
         laptopGaming.setHargaBarang(20000000);
         BarangService.getInstance().addBarang(laptopGaming);
     }
+
     @Test
     @Order(2)
     void getBarangList() {
@@ -48,7 +49,7 @@ class BarangServiceTest {
                 = BarangService
                 .getInstance()
                 .getBarangList();
-        assertEquals(barangList.size(),3);
+        assertEquals(barangList.size(), 3);
     }
 
     @Test
@@ -56,8 +57,9 @@ class BarangServiceTest {
     void findByName() {
         List<Barang> resultList =
                 BarangService.getInstance().findByName("Laptop");
-        assertEquals(resultList.size(),2);
+        assertEquals(resultList.size(), 2);
     }
+
     @Test
     @Order(4)
     void saveBarangToDatabase() {
@@ -95,12 +97,20 @@ class BarangServiceTest {
         barang1.ifPresent(new Consumer<Barang>() {
             @Override
             public void accept(Barang barang) {
+
+                assertEquals("laptop", barang.getNamaBarang());
+                assertEquals("LP001", barang.getKodeBarang());
+            }
+        });
+        Optional<Barang> barang2 = barangDao.get(1);
+
                 assertEquals("Laptop", barang.getNamaBarang());
                 assertEquals("LP001", barang.getKodeBarang());
             }
         });
 
         Optional<Barang> barang2 = barangDao.get(2);
+
         barang2.ifPresent(new Consumer<Barang>() {
             @Override
             public void accept(Barang barang) {
@@ -108,6 +118,13 @@ class BarangServiceTest {
                 assertEquals("MO001", barang.getKodeBarang());
             }
         });
+
+        Optional<Barang> barang3 = barangDao.get(1);
+        barang3.ifPresent(new Consumer<Barang>() {
+            @Override
+            public void accept(Barang barang) {
+                assertEquals("Laptop Gaming", barang.getNamaBarang());
+
 
         Optional<Barang> barang3 = barangDao.get(3);
         barang3.ifPresent(new Consumer<Barang>() {
