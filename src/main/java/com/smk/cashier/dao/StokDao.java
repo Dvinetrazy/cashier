@@ -7,10 +7,10 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Optional;
 
-public class StockDao implements Dao<Stok, Integer> {
+public class StokDao implements Dao<Stok, Integer> {
     private final Optional<Connection> conn;
 
-    public StockDao() {
+    public StokDao() {
         conn = JdbcConnection.getConnection();
     }
 
@@ -88,5 +88,10 @@ public class StockDao implements Dao<Stok, Integer> {
     @Override
     public void delete(Stok stok) {
 
+    }
+
+    @Override
+    public Collection<Stok> search(String keyword) {
+        return null;
     }
 }
