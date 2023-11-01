@@ -99,11 +99,20 @@ class BarangServiceTest {
         barang1.ifPresent(new Consumer<Barang>() {
             @Override
             public void accept(Barang barang) {
+
                 assertEquals("laptop", barang.getNamaBarang());
                 assertEquals("LP001", barang.getKodeBarang());
             }
         });
         Optional<Barang> barang2 = barangDao.get(1);
+
+                assertEquals("Laptop", barang.getNamaBarang());
+                assertEquals("LP001", barang.getKodeBarang());
+            }
+        });
+
+        Optional<Barang> barang2 = barangDao.get(2);
+
         barang2.ifPresent(new Consumer<Barang>() {
             @Override
             public void accept(Barang barang) {
@@ -111,11 +120,19 @@ class BarangServiceTest {
                 assertEquals("MO001", barang.getKodeBarang());
             }
         });
+
         Optional<Barang> barang3 = barangDao.get(1);
         barang3.ifPresent(new Consumer<Barang>() {
             @Override
             public void accept(Barang barang) {
                 assertEquals("Laptop Gaming", barang.getNamaBarang());
+
+
+        Optional<Barang> barang3 = barangDao.get(3);
+        barang3.ifPresent(new Consumer<Barang>() {
+            @Override
+            public void accept(Barang barang) {
+                assertEquals("LaptopGaming", barang.getNamaBarang());
                 assertEquals("LP0002", barang.getKodeBarang());
             }
         });
